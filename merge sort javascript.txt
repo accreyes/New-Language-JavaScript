@@ -1,0 +1,47 @@
+
+while(1){
+var inputArray = prompt ("Please enter array").split(",");
+console.log("Current input array is: "+ inputArray);
+alert(Split(inputArray));
+console.log("Resulting input array is: "+Split(inputArray));
+}
+
+//Split the array into single element arrays
+function Split (array) {
+  if (array.length === 1) {
+    // return once we hit an array with a single item
+    return array
+  }
+
+  var center = Math.floor(array.length / 2); 
+  var lHalf = array.slice(0, center); 
+  var rHalf = array.slice(center); 
+
+  return Combine(Split(lHalf),Split(rHalf));
+}
+
+// combines in proper order the array that was split 
+function Combine (leftArray, rightArray) {
+  var answer = [];
+  var leftI = 0;
+  var rightI = 0;
+
+  while (leftI < leftArray.length && rightI < rightArray.length) {
+    if (parseInt(leftArray[leftI]) < parseInt(rightArray[rightI])) {
+
+      //console.log(typeof leftArray[leftI]); // type checking of array element
+
+      answer.push(leftArray[leftI]); //push element of left array into the answer array
+      leftI++;
+    } else {
+
+      //console.log(typeof rightArray[rightI]); // type checking of array element
+
+      answer.push(rightArray[rightI]); //push element of right array into the answer array
+      rightI++;
+    }
+  }
+
+  return answer.concat(leftArray.slice(leftI)).concat(rightArray.slice(rightI)); //concatenate the remaining elements (if any)
+}
+
