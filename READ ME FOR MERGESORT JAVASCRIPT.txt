@@ -1,0 +1,7 @@
+READ ME FOR MERGESORT JAVASCRIPT
+
+1. Copy and paste the code to any web browser console that supports JavaScript
+2. Press "Enter"
+3. An input prompt will appear, input an integer array with each element separated by a comma
+4. Click "OK"
+5. The resulting sorted array will be shown as a prompt
